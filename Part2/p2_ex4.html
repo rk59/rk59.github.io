@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src = 'https://d3js.org/d3.v7.min.js'></script>
+</head>   
+<body>   
+
+  <script>
+    // write D3 code here:       
+
+    for(var i=1; i<=10; i++){
+      // create new div element in body
+      let newdiv = d3.select("body").append('div');
+      // if i is less than 6 print in red
+      if(i<6){
+        newdiv.text(i).style('color','red'); 
+      }
+      // else print in green
+      else{
+        newdiv.text(i).style('color','green');
+      }    	
+    }
+    // select first div, change contents to "start" and colour purple
+    d3.select("div").text("start").style('color','purple');
+    
+  </script>
+</body>
+</html>
