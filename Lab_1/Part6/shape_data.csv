@@ -1,2 +1,5 @@
-shape,x_pose,y_pose,width,height,x_radius,y_radius,color
-rectangle,50,50,100,50,NA,NA,blue
+shape,x_pose,y_pose,width,height,radius,x_radius,y_radius,color,x2,y2
+rectangle,50,50,100,50,NA,NA,NA,blue,,
+circle,100,100,NA,NA,20,,,green,,
+ellipse,0,20,NA,NA,NA,150,50,purple,,
+line,10,10,NA,NA,NA,NA,NA,red,100,100
