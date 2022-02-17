@@ -4,17 +4,44 @@
   <script src = 'https://d3js.org/d3.v7.min.js'></script>
 </head>   
 <body>   
-
-<div></div>
-<div></div>
-<div></div>
 <script>
+	 //Create SVG element
+	var svg = d3.select("body")
+  	.append("svg")
+    .attr("width", 400)
+    .attr("height", 400)
+    .style("border",'1px solid green');
+
 	// read csv file
-  let shapeFile = 'https://rk59.github.io/Lab_1/Part6/shape_data.csv';
-
-
-
-
+  let shapeFile = 'https://rk59.github.io/Lab_1/Part6/shape_data.csv';  
+  d3.csv(shapeFile, function(data){    
+  	if(data.shape == 'rectangle'){
+    	console.log(data.shape);      
+      svg.append("rect")
+      	.attr("x", data.x_pose)
+        .attr("y", data.y_pose)
+        .attr("width", data.weidth)
+        .attr("height", data.height)
+        .attr("fill", data.color);
+    }
+    /*
+    if(data.shape == 'circle'){
+    	console.log(data.shape);
+  	}
+    if(data.shape == 'ellipse'){
+    	console.log(data.shape);
+    }
+  	if(data.shape == 'line'){
+    	console.log(data.shape);
+    }
+    */
+   
+  }); 
+  
+  
+  
+  
+  
 </script>
  
 </body>
