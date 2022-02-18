@@ -8,40 +8,53 @@
 	 //Create SVG element
 	var svg = d3.select("body")
   	.append("svg")
-    .attr("width", 400)
-    .attr("height", 400)
+    .attr("width", 800)
+    .attr("height", 800)
     .style("border",'1px solid green');
+	//x_pose	y_pose	width	height
 
 	// read csv file
   let shapeFile = 'https://rk59.github.io/Lab_1/Part6/shape_data.csv';  
   d3.csv(shapeFile, function(data){    
   	if(data.shape == 'rectangle'){
-    	console.log(data.shape);      
+    	console.log(data.shape); 
       svg.append("rect")
       	.attr("x", data.x_pose)
         .attr("y", data.y_pose)
-        .attr("width", data.weidth)
+        .attr("width", data.width)
         .attr("height", data.height)
-        .attr("fill", data.color);
-    }
-    /*
+        .attr("fill", data.color);    
+    }    
+    
     if(data.shape == 'circle'){
     	console.log(data.shape);
+      svg.append("circle")
+      	.attr("cx", data.x_pose)
+        .attr("cy", data.y_pose)
+        .attr("r", data.radius)
+        .attr("fill", data.color);             
   	}
+    
     if(data.shape == 'ellipse'){
     	console.log(data.shape);
+      svg.append("ellipse")
+         .attr("cx", data.x_pose)
+         .attr("cy", data.y_pose)
+         .attr("rx", data.x_radius)
+         .attr("ry", data.y_radius)
+         .attr("fill", data.color);
     }
+    
   	if(data.shape == 'line'){
     	console.log(data.shape);
-    }
-    */
-   
-  }); 
-  
-  
-  
-  
-  
+      svg.append("line")
+         .attr("x1", data.x_pose)
+         .attr("x2", data.x2)
+         .attr("y1", data.y_pose)
+         .attr("y2", data.y2)
+         .attr("stroke", data.color);   
+    }   
+  });   
 </script>
  
 </body>
