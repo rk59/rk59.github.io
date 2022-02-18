@@ -11,10 +11,10 @@
     .attr("width", 800)
     .attr("height", 800)
     .style("border",'1px solid green');
-	//x_pose	y_pose	width	height
 
 	// read csv file
   let shapeFile = 'https://rk59.github.io/Lab_1/Part6/shape_data.csv';  
+
   d3.csv(shapeFile, function(data){    
   	if(data.shape == 'rectangle'){
     	console.log(data.shape); 
