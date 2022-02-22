@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src = 'https://d3js.org/d3.v7.min.js'></script>
+</head>   
+<body>   
+<script>
+	 //Create SVG element
+
+
+	// read csv file
+  let shapeFile = 'https://rk59.github.io/Lab_1/Part6/shape_data.csv';  
+
+  d3.csv(shapeFile, function(data){    
+
+  	var svg = d3.select("body")
+  	.append("svg")
+    .attr("width", 800)
+    .attr("height", 800)
+    .style("border",'1px solid green')
+    .enter()
+      .append('body')
+      
+
+  });   
+</script>
+ 
+</body>
+</html>
