@@ -16,20 +16,25 @@
   	.attr("cx", 100)
     .attr("cy", 100)
     .attr("r", 30)
-    .attr("fill", 'blue');
-    
-   d3.selectAll("svg")
+    .attr("fill", 'blue');  
+
+var followText = svg.append("text")  
+        .attr("x", 20)
+        .attr("y", 20)
+        .text("Hello World!");
+
+   d3.select("svg")  
    .on("mousemove", function(event){   
    	console.log(event);
     console.log(d3.pointer(event)); 
+    // array with pointer coordinates
     var mouseCoords = d3.pointer(event) 
-    var followText = svg.append("rect")
-    	.attr("x", mouseCoords[0])
-      .attr("y", mouseCoords[1])
-      .attr("width", 20)
-      .attr("height", 20)
-      .attr("fill", 'yellow');  
+    followText
+        .attr("x", mouseCoords[0])
+        .attr("y", mouseCoords[1])  
    })
+
+
 </script>
 </body>
 </html>
