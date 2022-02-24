@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src = 'https://d3js.org/d3.v7.min.js'></script>
+</head>   
+<body> 
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>   
+  const svg = d3.select("body")
+  	.append("svg")
+    .attr("width", 800)
+    .attr("height", 800)    
+    .style("border",'1px solid green');
+  
+  svg.append("circle")
+  	.attr("cx", 100)
+    .attr("cy", 100)
+    .attr("r", 30)
+    .attr("fill", 'blue');
+    
+   d3.selectAll("svg")
+   .on("mousemove", function(event){   
+   	console.log(event);
+    console.log(d3.pointer(event)); 
+    var mouseCoords = d3.pointer(event) 
+    var followText = svg.append("rect")
+    	.attr("x", mouseCoords[0])
+      .attr("y", mouseCoords[1])
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill", 'yellow');  
+   })
+</script>
+</body>
+</html>
