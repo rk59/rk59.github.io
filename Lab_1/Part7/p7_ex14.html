@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src='https://d3js.org/d3.v7.min.js'></script>
+<body>   
 <style>
 svg rect {
  fill: blue;
@@ -12,29 +13,53 @@ svg text {
 }
 </style>
 <script>
-var data = [5, 10, 12, 6];
-var width = 200;
-var scaleFactor = 10;
-var barHeight = 20;
-var graph = d3.select("body")
- .append("svg")
- .attr("width", width)
- .attr("height", barHeight * data.length);
-var bar = graph.selectAll("g")
- .data(data)
- .enter()
- .append("g")
- .attr("transform", function(d, i) {
- return "translate(0," + i * barHeight + ")";
- });
-bar.append("rect")
- .attr("width", function(d) {
- return d * scaleFactor;
- })
- .attr("height", barHeight - 1);
-bar.append("text")
- .attr("x", function(d) { return (d*scaleFactor); })
- .attr("y", barHeight / 2)
- .attr("dy", ".35em")
- .text(function(d) { return d; });
+    count_mr_mrs = 0
+    count_male = 0
+    count_female = 0
+
+    let titaniccsv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+    d3.csv(titaniccsv, function(data) { 
+        if(data.Name.includes("Mr") || data.Name.includes("Mrs")){
+                count_mr_mrs++;
+        }
+        if(data.Sex.includes("male")){
+                count_male++;
+        }
+        if(data.Sex.includes("female")){
+                count_female++;
+        }
+        
+        console.log("Mr and Mrs Count: " + count_mr_mrs);
+        console.log("Female Count: " + count_female);
+        console.log("Male Count: " + count_male);
+    }
+
+    var data = [5, 10, 12, 6];
+    var width = 200;
+    var scaleFactor = 10;
+    var barHeight = 20;
+    var graph = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", barHeight * data.length);
+    var bar = graph.selectAll("g")
+    .data(data)
+    .enter()
+    .append("g")
+    .attr("transform", function(d, i) {
+    return "translate(0," + i * barHeight + ")";
+    });
+    bar.append("rect")
+    .attr("width", function(d) {
+    return d * scaleFactor;
+    })
+    .attr("height", barHeight - 1);
+    bar.append("text")
+    .attr("x", function(d) { return (d*scaleFactor); })
+    .attr("y", barHeight / 2)
+    .attr("dy", ".35em")
+    .text(function(d) { return d; });
 </script>
+ 
+</body>
+</html>
