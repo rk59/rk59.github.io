@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--Part 1 Exercise 1-->
+<!--Created by Ronan Kingsbury-->
 <html lang="en">
 <head> 
   <script src='https://d3js.org/d3.v7.min.js'></script>
@@ -117,11 +119,12 @@
         return y(d.y)
       })
       .attr("r", 5)
-      .classed("pulse",true) // add to class pulse, to add pulse animation
+      // add to class pulse, to add pulse animation
+      .classed("pulse",true) 
       .style("fill", "red");
   }
 
-  // Create Random Points
+  // Create random points in a straight line
   const numPoints = 100;
   const data = [];
   for (let i = 0; i < numPoints; i++) {

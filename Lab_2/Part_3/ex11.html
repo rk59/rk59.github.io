@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--Part 3 Exercise 11-->
+<!--Created by Ronan Kingsbury-->
 <html lang="en">
 <head>
   <script src = 'https://d3js.org/d3.v7.min.js'></script>
@@ -45,7 +47,7 @@
     console.log(d3.pointer(event));
 
    })
-   .on("mouseout", function(event){
+    .on("mouseout", function(event){
     circle.transition()
     .ease(d3.easeBounce)
     .duration(2000)   

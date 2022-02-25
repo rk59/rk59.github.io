@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--Part 2 Exercise 5-->
+<!--Created by Ronan Kingsbury-->
 <html lang="en">
 <head>
   <script src = 'https://d3js.org/d3.v7.min.js'></script>
@@ -12,23 +14,28 @@
     .attr("height", 800)    
     .style("border",'1px solid green');
   
+  // Create circle
   svg.append("circle")
   	.attr("cx", 100)
     .attr("cy", 100)
     .attr("r", 30)
     .attr("fill", 'blue');  
 
+// Creates the text -
+// However, pre-exisiting before moves over circle
 var followText = svg.append("text")  
         .attr("x", 20)
         .attr("y", 20)
-        .text("Hello World!");
+        .text("Hello World!")
+        .style("fill",'black');
 
    d3.select("svg")  
-   .on("mousemove", function(event){   
+   .on("mousemove", function(event){  
    	console.log(event);
     console.log(d3.pointer(event)); 
     // array with pointer coordinates
     var mouseCoords = d3.pointer(event) 
+    // set mouse coordinates to (x,y) position of followText
     followText
         .attr("x", mouseCoords[0])
         .attr("y", mouseCoords[1])  

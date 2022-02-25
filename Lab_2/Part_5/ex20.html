@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--Part 5 Exercise 20-->
+<!--Created by Ronan Kingsbury-->
 <html lang="en">
 <head>
   <script src = 'https://d3js.org/d3.v7.min.js'></script>
@@ -63,6 +65,7 @@ function update(data) {
  u .enter()
  .append("rect")
  .merge(u) 
+ // Create if statement that changes the colour based upon different data type
  .attr('fill', (d) => {
       if (data == data1) {
         return 'red';
