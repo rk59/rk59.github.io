@@ -11,7 +11,7 @@
 <button onclick="update(data2)">Variable 2</button>
 <button onclick="update(data3)">Variable 3</button>
 <script>
-// create 2 data_set
+// create 3 data_set
 const data1 = [
  {group: "A", value: 5},
  {group: "B", value: 20},
@@ -50,18 +50,19 @@ svg.append("g")
  .call(d3.axisBottom(x))
 // Add Y axis
 var y = d3.scaleLinear()
-.domain([0, 20])
+ .domain([0, 20])
  .range([ height, 0]);
 svg.append("g")
  .attr("class", "myYaxis")
  .call(d3.axisLeft(y));
+
 // A function that create / update the plot for a given variable:
 function update(data) {
  var u = svg.selectAll("rect")
  .data(data)
  u .enter()
  .append("rect")
- .merge(u)
+ .merge(u) 
  .attr('fill', (d) => {
       if (data == data1) {
         return 'red';
@@ -72,21 +73,22 @@ function update(data) {
       }
     })
  .transition()
- .duration(1000)
+ .duration(1000) 
  .attr("x", function(d) { return x(d.group); })
  .attr("y", function(d) { return y(d.value); })
  .attr("width", x.bandwidth())
  .attr("height", function(d) { return height - y(d.value); }) 
 }
-function onMouseOver(d, i) {      
-      d3.select(this)      
-      .text( function(d) { return '$' + i.value; } ) // Value of the text
-      .attr("x", function(d){ return x(i.year)+8.5;})
-      .attr("y", function(d){ return y(i.value)-10;})   
-    
-    }
-// Initialize the plot with the first dataset
 update(data1)
+d3.selectAll("rect")  
+  .on("mouseover", onMouseOver)
+  d3.select(this)   
+      .attr("fill","orange");
+      //.text( function(d) { return '$' + d.value; } ) // Value of the text
+      //.attr("x", function(d){ return x(d.group);})
+      //.attr("y", function(d){ return y(d.value);})  
+    
+// Initialize the plot with the first dataset
 </script>
 </body>
 </html>
