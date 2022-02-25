@@ -20,24 +20,25 @@
     .attr("r", 30)
     .attr("fill", 'blue');
     
-   var circle = d3.select("circle")
+    // On Mouse Over Action
+    var circle = d3.select("circle")
    .on("mouseover", function(event){
-    circle.transition()
-    .ease(d3.easeBounce)
-    .duration(2000)   
-   	.style("transform",'scale(0.5)')     
-   	console.log(event);
-    console.log(d3.pointer(event));
+      circle.transition()
+        .ease(d3.easeBounce)
+        .duration(2000)   
+        .style("transform",'scale(0.5)')     
+      console.log(event);
+      console.log(d3.pointer(event));
 
    })
-   .on("mouseout", function(event){
-    circle.transition()
-    .ease(d3.easeBounce)
-    .duration(2000)   
-   	.style("transform",'scale(1.5)') 
-   	console.log(event);
-    console.log(d3.pointer(event));
-
+   // On Mouse Out Action
+    .on("mouseout", function(event){
+      circle.transition()
+        .ease(d3.easeBounce)
+        .duration(2000)   
+        .style("transform",'scale(1.5)') 
+      console.log(event);
+      console.log(d3.pointer(event));
    })
 </script>
 </body>

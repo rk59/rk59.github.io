@@ -28,33 +28,38 @@
     var textBlock = d3.select("text")
         .on("mouseover",function(event){
             textBlock.transition()
-                .style("transform","scale(1.5)")
-                .attr("fill","red");            
+            // increase scale size
+              .duration(2000)
+              .style("transform","scale(1.5)")
+              .attr("fill","red");            
         })    
         .on("mouseout",function(event){
-            textBlock.transition()
-                .style("transform","scale(1.0)")
-                .attr("fill","black");
+            textBlock.transition()            
+            // return scale size to orignal and original colour
+              .duration(2000)
+              .style("transform","scale(1.0)")
+              .attr("fill","black");
             })
             
    var circle = d3.select("circle")
+   // On Mouse Over Action
    .on("mouseover", function(event){
-    circle.transition()
-    .ease(d3.easeBounce)
-    .duration(2000)   
-   	.style("transform",'scale(0.5)')     
-   	console.log(event);
-    console.log(d3.pointer(event));
+      circle.transition()
+        .ease(d3.easeBounce)
+        .duration(2000)   
+        .style("transform",'scale(0.5)')     
+      console.log(event);
+      console.log(d3.pointer(event));
 
    })
+   // On Mouse Out Action
     .on("mouseout", function(event){
-    circle.transition()
-    .ease(d3.easeBounce)
-    .duration(2000)   
-   	.style("transform",'scale(1.5)') 
-   	console.log(event);
-    console.log(d3.pointer(event));
-
+      circle.transition()
+        .ease(d3.easeBounce)
+        .duration(2000)   
+        .style("transform",'scale(1.5)') 
+      console.log(event);
+      console.log(d3.pointer(event));
    })
 </script>
 </body>
