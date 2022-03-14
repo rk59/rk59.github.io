@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src = 'https://d3js.org/d3.v7.min.js'></script>
+</head>   
+<body>   
+<!--Create 2 div sections for each of the data items-->
+<div id="titles"></div>
+<div id="genderInfo"></div>
+
+<script>
+// load in csv file 
+const titanicCsv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+
+function printCount(data){
+    /* Array.from() returns array object from any object with length
+    or any iterable object (like elemnts in a csv file)*/     
+    const titleOccurance = Array.from(
+        data.map(function (passenger){
+            const name = passenger.Name;
+            /* substring() returns characters between two indices
+            Names are stored as "Kelly, Mr. james" so title is stored between
+            2 characters after ',' and before'.'*/
+            return name.substring(name.indexOf(',')+2, name.indexOf('.'))
+            // Arrow Function => allows for shorter function syntax
+        }).reduce((acc, title) => (acc.set(title, (acc.get(title) || 0) + 1), acc), new Map())
+    ).map(entry => `${entry[0]}: ${entry[1]}`)
+      .join(' | ')
+    d3.select('#titles')
+      .text(titlesOccurrences);
+    return data;
+  }
+
+function printGenderCount(data){
+    const menCount = data.filter(passenger => passenger.Sex === 'male').length;
+    const femaleCount = data.filter(passengers => passengers.Sex === 'female').length;
+
+    d3.select('#genderInfo')
+      .text(`Men count: ${menCount} | Female count: ${femaleCount}`);
+    return data
+}
+d3.csv(titanicCsv)
+    .then(value => printCount(value))
+    .then(value => printGenderCount(value));
+
+</script> 
+</body>
+</html>
