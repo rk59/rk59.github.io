@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--Author: Ronan Kingsbury-->
+<!--Date: 16.03.2022-->
+<!--Name: Graph Trial-->
+<!--Description: Trial creating graph to show 
+number of covid cases over time for specific locations
+-->
+
+<html lang="en">
+    <meta charset = "utf-8">
+<head>  
+  <script src='https://d3js.org/d3.v7.min.js'></script>
+</head>
+<body>
+    <div graphID = "my_graph"></div>
+
+
+<script>
+    let covidRates = "";
+
+    // set dimensions and margins of graph
+    var margin = {top: 10, right: 30, bottom: 30, left: 60},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+    
+    // append svg object to body of page
+    var svg = d3.select("#my_graph")
+            .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate("+ margin.left + "," + margin.top +")");  
+            
+    d3.csv()
+</script>
+</body>
+</html>
