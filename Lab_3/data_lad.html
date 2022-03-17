@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+<head>
+  <script src = 'https://d3js.org/d3.v7.min.js'></script>
+</head>   
+<body>   
+  <script>           
+    let locationData = "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/archived/ecdc/locations.csv"; 
+    
+    d3.csv(locationData, function(data){        
+        console.log(data);         
+    });        
+
+  </script>
+</body>
+</html>
